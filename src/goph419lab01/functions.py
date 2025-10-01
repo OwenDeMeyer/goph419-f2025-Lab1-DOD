@@ -35,19 +35,22 @@ if a<0 or a>1:
 
 term = a #first term
 result = term 
-old_result = 0 
+old_result = float('inf') #to force the loop to run at least once
 n = 1 
 
 cond = 1e-9 #condition for 8 significant figures
 
-while (result - old_result) > cond:
-  denom = (n**2) * (factorial(2*n) / ((factorial(n))**2)
-  term = ((2*a)**2n) / denom
+while abs(result - old_result) > cond:
+
+  denom = (n**2) * (factorial(2*n) / ((factorial(n))**2))
+  term = ((2*a)**(2*n)) / denom
   old_result = result 
   result += term
+  n += 1
+  y = (result*0.5)**0.5 
 # implementation of arcsin
 # (using the series from Borwein and Chamberlain 2007)
-return result
+return y
 
 def launch_angle_range(ve_v0, alpha, tol_alpha):
 """Description of function.
@@ -61,4 +64,5 @@ Returns
 # functions implementing Equations (17) and (18)
 # ...
 return phi_range
+
 
