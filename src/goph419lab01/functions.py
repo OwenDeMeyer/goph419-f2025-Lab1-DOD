@@ -80,17 +80,25 @@ def arcsin(a):
         y = (result*0.5)**0.5
     return y
 def launch_angle_range(ve_v0, alpha, tol_alpha):
-"""Description of function.
-Parameters
-----------
-Returns
--------
-"""
+# """Description of function.
+# Parameters
+# ----------
+# Returns
+# -------
+# """
 # ...
 # your implementation here should call on your
 # functions implementing Equations (17) and (18)
 # ...
-return phi_range
+    sin_phi = (1 + alpha) * sqrt(1 - (alpha / (1 + alpha)) * (ve_v0**2))
+    if sin_phi > 1 or sin_phi < -1:
+        raise ValueError('No valid launch angle exists for these parameters')
+    phi = arcsin(sin_phi)
+    phi_range = (phi - tol_alpha, phi + tol_alpha)
+    return phi_range
+
+
+
 
 
 
