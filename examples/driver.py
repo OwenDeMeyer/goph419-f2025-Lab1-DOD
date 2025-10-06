@@ -1,4 +1,4 @@
-from src/functions import *
+from src\functions import *
 
 def main():
     def plot_alpha_vs_launch_angle():
