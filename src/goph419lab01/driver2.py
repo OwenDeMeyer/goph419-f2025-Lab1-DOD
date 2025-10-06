@@ -1,5 +1,4 @@
-from src.functions import launch_angle_range
-
+from functions import *
 
 def main():
     def plot_alpha_vs_launch_angle():
