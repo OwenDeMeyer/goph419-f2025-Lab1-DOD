@@ -1,5 +1,7 @@
 from functions import *
-
+import matplotlib.pyplot as plt
+import os 
+PI = 3.14159265358979323846
 def main():
     def plot_alpha_vs_launch_angle():
             ve_v0 = 2.0
