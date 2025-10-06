@@ -1,3 +1,5 @@
+from functions import *
+
 def main():
     def plot_alpha_vs_launch_angle():
             ve_v0 = 2.0
@@ -10,7 +12,7 @@ def main():
             a = 0.0
             while a <= 1.0:
                 try:
-                    phi_min, phi_max = launch_angle_range(ve_v0, a, tol_alpha)
+                    phi_min, phi_max = functions.launch_angle_range(ve_v0, a, tol_alpha)
                 except ValueError:
                     a += 0.01
                     continue
@@ -45,7 +47,7 @@ def main():
         
         while ve_v0 <= 6.0:
             try:
-                phi_min, phi_max = launch_angle_range(ve_v0, a, tol_alpha)
+                phi_min, phi_max = functions.launch_angle_range(ve_v0, a, tol_alpha)
             except ValueError:
                 ve_v0 += 0.01
                 continue
