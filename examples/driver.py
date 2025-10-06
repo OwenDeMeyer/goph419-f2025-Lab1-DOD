@@ -1,4 +1,7 @@
-from src\functions import *
+import sys
+sys.path.append("src")
+from functions import *
+
 
 def main():
     def plot_alpha_vs_launch_angle():
