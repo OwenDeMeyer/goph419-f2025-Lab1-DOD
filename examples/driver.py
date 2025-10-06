@@ -1,6 +1,4 @@
-import sys
-sys.path.append("src")
-from functions import *
+from src.functions import launch_angle_range
 
 
 def main():
