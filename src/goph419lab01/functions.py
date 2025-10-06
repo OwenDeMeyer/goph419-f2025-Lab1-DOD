@@ -116,7 +116,8 @@ def launch_angle_range(ve_v0, alpha, tol_alpha):
     phi_max = launch_angle(ve_v0, alpha_min) 
 
     return ([phi_min, phi_max])
-print(launch_angle_range(2,0.25,0.02))
+
+
 
 
 
