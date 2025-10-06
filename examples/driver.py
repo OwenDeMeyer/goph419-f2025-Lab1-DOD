@@ -1,4 +1,4 @@
-from functions import *
+from src/goph419lab01/functions import *
 
 def main():
     def plot_alpha_vs_launch_angle():
