@@ -1,5 +1,17 @@
 def factorial(n):
-   return 1 if n == 0 else n * factorial(n - 1)
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1 
+    else:
+            y = 1
+            sum = 0
+            while n > 1:
+                sum = n * (n - 1)
+                y = y * sum 
+                n -= 2
+            return y
+
 
 def sqrt(x):
     """
@@ -42,8 +54,8 @@ def sqrt(x):
     term = 1.0
     n = 1
     cond = 1e-9  # condition for 8 significant figures
-
-    while abs(term) > cond:
+    max_terms = 100
+    while abs(term) > cond and n < max_terms:
        
         coeff = 1.0
         for j in range(1, n):
@@ -57,6 +69,7 @@ def sqrt(x):
         n += 1
 
     return result
+
 def arcsin(a):
     if a<0 or a>1:
         raise ValueError('Input number from 0-1')
@@ -80,22 +93,31 @@ def arcsin(a):
         y = (result*0.5)**0.5
     return y
 def launch_angle_range(ve_v0, alpha, tol_alpha):
-# """Description of function.
-# Parameters
-# ----------
-# Returns
-# -------
-# """
-# ...
-# your implementation here should call on your
-# functions implementing Equations (17) and (18)
-# ...
-    sin_phi = (1 + alpha) * sqrt(1 - (alpha / (1 + alpha)) * (ve_v0**2))
-    if sin_phi > 1 or sin_phi < -1:
-        raise ValueError('No valid launch angle exists for these parameters')
-    phi = arcsin(sin_phi)
-    phi_range = (phi - tol_alpha, phi + tol_alpha)
-    return phi_range
+    """
+    Compute the range of allowable launch angles given a velocity ratio,
+    target altitude ratio, and tolerance for maximum altitude.
+    """
+    # Compute upper and lower bounds of alpha
+    alpha_min = (1 - tol_alpha) * alpha
+    alpha_max = (1 + tol_alpha) * alpha
+
+
+    def launch_angle(ve_v0, alpha):
+        if (1 - (alpha / (1 + alpha)) * (ve_v0**2)) < 0:
+            raise ValueError('No valid launch angle exists for these parameters (sqrt of neg num)')
+        sin_phi = (1 + alpha) * sqrt(1 - (alpha / (1 + alpha)) * (ve_v0**2))
+        if sin_phi > 1 or sin_phi < -1:
+            raise ValueError('No valid launch angle exists for these parameters') 
+            
+        return arcsin(sin_phi)
+
+    # Compute for both upper and lower altitudes
+    phi_min = launch_angle(ve_v0, alpha_max)  
+    phi_max = launch_angle(ve_v0, alpha_min) 
+
+    return ([phi_min, phi_max])
+print(launch_angle_range(2,0.25,0.02))
+
 
 
 
