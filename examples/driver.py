@@ -69,4 +69,7 @@ def main():
         plt.savefig("figures/launch_angle_vs_alpha.png", dpi=300)
         plt.show()
 
+if __name__ ==: "__main__"
+    main()
+
 
