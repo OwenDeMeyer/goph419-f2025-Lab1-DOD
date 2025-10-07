@@ -1,4 +1,4 @@
-import functions
+import src/goph419lab01.functions as functions
 import matplotlib.pyplot as plt
 import os 
 PI = 3.14159265358979323846
