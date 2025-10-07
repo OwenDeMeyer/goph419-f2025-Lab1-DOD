@@ -1,9 +1,8 @@
-from functions import *
+import functions
 import matplotlib.pyplot as plt
 import os 
 PI = 3.14159265358979323846
-def main():
-    def plot_alpha_vs_launch_angle():
+def plot_alpha_vs_launch_angle():
             ve_v0 = 2.0
             tol_alpha = 0.04
         
@@ -37,8 +36,8 @@ def main():
             os.makedirs("figures", exist_ok=True)
             plt.savefig("figures/launch_angle_vs_alpha.png", dpi=300)
             plt.show()
-        
-    def plot_velocity_vs_launch_angle():
+       
+def plot_velocity_vs_launch_angle():
         a = 0.25
         tol_alpha = 0.04
         ve_v0 = 0.5
@@ -70,9 +69,13 @@ def main():
         plt.grid(True)
         plt.tight_layout()
         os.makedirs("figures", exist_ok=True)
-        plt.savefig("figures/launch_angle_vs_alpha.png", dpi=300)
+        plt.savefig("figures/launch_angle_vs_velocity.png", dpi=300)
         plt.show()
+
+
+def main():
+    plot_alpha_vs_launch_angle()
+    plot_velocity_vs_launch_angle()
 
 if __name__ == "__main__":
     main()
-print('Yooooooo')
