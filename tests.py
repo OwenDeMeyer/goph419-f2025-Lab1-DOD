@@ -12,7 +12,11 @@ def test_launch_angle_range():
   alpha = 0.25
   tol_alpha = 0.02 
   def expected_launch_angle(x, a):
-    sin2 = (1 + a) * (1 + a * (1 - x^2))
-    if 0 > sin2 or Sin2 > 1: 
+    sin1 = (1 + a) * (1 + a * (1 - x^2))
+    if 0 > sin1 or Sin1 > 1: 
        raise ValueError('input number from 0-1')
     return np.arcsin(np.sqrt(sin2))
+  exp_min = expected_launch_angle(ve_v0, (1 + alpha) * alpha)
+  exp_max = expected_launch_angle(ve_v0, (1 - alpha) * alpha)
+  comp = functions.launch_angle_range(ve_v0, alpha, tol_alpha)
+  comp_min, comp_max = comp
